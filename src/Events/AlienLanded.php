@@ -11,4 +11,14 @@ class AlienLanded
         $this->alienName = $alienName;
         $this->cityName = $cityName;
     }
+
+    public function alienName()
+    {
+        return $this->alienName;
+    }
+
+    public function cityName()
+    {
+        return $this->cityName;
+    }
 }
