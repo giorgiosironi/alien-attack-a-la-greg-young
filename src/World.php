@@ -25,7 +25,8 @@ class World
     public function alienWanders($alien)
     {
         // assumption that projection is perfectly consistent?
-        $sourceCity = $this->aliensPositionProjection()->whereIs($alien);
+        $sourceCityName = $this->aliensPositionProjection()->whereIs($alien);
+        $sourceCity = $this->cityRepository->findByName($sourceCityName);
         $events = $sourceCity->alienWanders();
         $this->applyToProjections($events);
     }
