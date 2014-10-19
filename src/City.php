@@ -10,6 +10,11 @@ class City
         $this->name = $name;
     }
 
+    public function name()
+    {
+        return $this->name;
+    }
+
     public function alienLands(Alien $alien)
     {
         return [
