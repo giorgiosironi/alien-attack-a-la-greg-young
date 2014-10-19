@@ -10,6 +10,11 @@ class World
         ];
     }
 
+    public function addCity($city)
+    {
+        $this->cityRepository->addCity(new City($city));
+    }
+
     public function alienLands($alien)
     {
         $city = $this->cityRepository->findAFreeCity();

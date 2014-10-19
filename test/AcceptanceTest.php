@@ -26,7 +26,7 @@ class AcceptanceTest extends \PHPUnit_Framework_TestCase
 
     private function givenACity($city)
     {
-        $this->city = $city;
+        $this->world->addCity($city);
     }
 
     private function whenAlien($alien)

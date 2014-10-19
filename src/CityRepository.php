@@ -9,6 +9,10 @@ class CityRepository
         $this->list = $list;
     }
 
+    public function addCity(City $city)
+    {
+    }
+
     public function findAFreeCity()
     {
         return new City($this->list[0]); 
