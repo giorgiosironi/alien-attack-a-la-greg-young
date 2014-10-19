@@ -10,9 +10,9 @@ class World
         ];
     }
 
-    public function addCity($city)
+    public function addCity($cityName)
     {
-        $this->cityRepository->addCity(new City($city));
+        $this->cityRepository->add(new City($cityName));
     }
 
     public function alienLands($alien)

@@ -6,7 +6,7 @@ class CityRepositoryTest extends \PHPUnit_Framework_TestCase
     public function testARepositoryCanAddACityToTheAvailableOnes()
     {
         $repository = new CityRepository();
-        $events = $repository->addCity(new City('A'));
+        $events = $repository->add(new City('A'));
         $this->assertEquals(
             [
                 new CityBuilt('A'),
@@ -19,7 +19,7 @@ class CityRepositoryTest extends \PHPUnit_Framework_TestCase
     {
         // TODO: Extract Given step 
         $repository = new CityRepository();
-        $events = $repository->addCity(new City('A'));
+        $events = $repository->add(new City('A'));
         $this->assertEquals(new City('A'), $repository->findAFreeCity());
     }
 }

@@ -5,7 +5,7 @@ class CityRepository
 {
     private $list = [];
     
-    public function addCity(City $city)
+    public function add(City $city)
     {
         $this->list[] = $city;
         return [new CityBuilt($city->name())];
