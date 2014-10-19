@@ -1,0 +1,16 @@
+{
+    "name": "giorgiosironi/alien-attack-cqrs",
+    "description": "Second shot at CQRS implementation of Alien Attack kata.",
+    "authors": [
+        {
+            "name": "Giorgio Sironi",
+            "email": "info@giorgiosironi.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-0": {"" : "src/"}
+    }
+}

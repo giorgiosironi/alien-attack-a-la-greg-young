@@ -1,7 +1,5 @@
 <?php
 use Events\AlienLanded;
-require_once __DIR__ . '/../src/AliensPositionProjection.php';
-require_once __DIR__ . '/../src/Events/AlienLanded.php';
 
 class AliensPositionProjectionTest extends \PHPUnit_Framework_TestCase
 {
