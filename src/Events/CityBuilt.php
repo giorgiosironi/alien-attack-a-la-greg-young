@@ -9,4 +9,9 @@ class CityBuilt
     {
         $this->cityName = $cityName;
     }
+
+    public function cityName()
+    {
+        return $this->cityName;
+    }
 }

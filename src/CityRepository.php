@@ -7,12 +7,22 @@ class CityRepository
     
     public function add(City $city)
     {
-        $this->list[] = $city;
-        return [new CityBuilt($city->name())];
+        $events = [new CityBuilt($city->name())];
+        $this->applyEvents($events);
+        return $events;
     }
 
     public function findAFreeCity()
     {
         return $this->list[0]; 
-    }    
+    } 
+
+    private function applyEvents($events)
+    {
+        foreach ($events as $event) {
+            if ($event instanceof CityBuilt) {
+                $this->list[] = new City($event->cityName());
+            }
+        }
+    }
 }
