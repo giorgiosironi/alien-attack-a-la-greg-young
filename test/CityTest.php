@@ -1,5 +1,6 @@
 <?php
 use Events\RoadBuilt;
+use Events\TravelStarted;
 
 class CityTest extends \PHPUnit_Framework_TestCase
 {
@@ -19,6 +20,27 @@ class CityTest extends \PHPUnit_Framework_TestCase
 
     public function testAnAlienCanWanderToAnotherCity()
     {
-        $this->markTestIncomplete('We need to build roads first!');
+        $this->givenTwoConnectedCities('A', 'B');
+        $this->givenAnAlienInTheFirstCity('1');
+
+        $events = $this->firstCity->alienWanders();
+
+        $this->assertEquals(
+            [
+                new TravelStarted('1', 'A', 'B'),
+            ],
+            $events
+        );
     }    
+
+    private function givenTwoConnectedCities($firstCityName, $secondCityName)
+    {
+        $this->firstCity = new City($firstCityName);
+        $this->firstCity->connectTo($secondCityName);
+    }
+
+    private function givenAnAlienInTheFirstCity($alienName)
+    {
+        $this->firstCity->alienLands(new Alien($alienName));
+    }
 }

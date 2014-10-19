@@ -1,6 +1,7 @@
 <?php
 use Events\AlienLanded;
 use Events\RoadBuilt;
+use Events\TravelStarted;
 
 class City
 {
@@ -27,6 +28,13 @@ class City
     {
         return [
             new RoadBuilt($this->name, $anotherCityName),
+        ];
+    }
+
+    public function alienWanders()
+    {
+        return [
+            new TravelStarted('', '', ''),
         ];
     }
 }
