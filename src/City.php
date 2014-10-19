@@ -34,7 +34,7 @@ class City
     public function alienWanders()
     {
         return [
-            new TravelStarted('', '', ''),
+            new TravelStarted('', $this->name, ''),
         ];
     }
 }
