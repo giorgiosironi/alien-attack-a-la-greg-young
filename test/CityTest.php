@@ -1,4 +1,5 @@
 <?php
+use Events\RoadBuilt;
 
 class CityTest extends \PHPUnit_Framework_TestCase
 {

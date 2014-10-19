@@ -1,5 +1,6 @@
 <?php
 use Events\AlienLanded;
+use Events\RoadBuilt;
 
 class City
 {
@@ -21,4 +22,11 @@ class City
             new AlienLanded($alien->name(), $this->name),
         ]; 
     }     
+
+    public function connectTo($anotherCityName)
+    {
+        return [
+            new RoadBuilt($this->name, $anotherCityName),
+        ];
+    }
 }
