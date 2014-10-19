@@ -39,15 +39,16 @@ class City
 
     public function alienWanders()
     {
-        // TODO: for consistency, call applyEvents()
         $chosenCityName = $this->outgoingRoads[0];
-        return [
+        $events = [
             new TravelStarted(
                 $this->alien->name(),
                 $this->name,
                 $chosenCityName
             ),
         ];
+        $this->applyEvents($events);
+        return $events;
     }
 
     private function applyEvents(array $events)
