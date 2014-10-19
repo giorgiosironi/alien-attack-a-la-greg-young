@@ -6,6 +6,8 @@ use Events\TravelStarted;
 class City
 {
     private $name;
+    private $alien;
+    private $outgoingRoads;
     
     public function __construct($name)
     {
@@ -23,22 +25,27 @@ class City
             new AlienLanded($alien->name(), $this->name),
         ]; 
         $this->applyEvents($events);
+        return $events;
     }     
 
     public function connectTo($anotherCityName)
     {
-        return [
+        $events = [
             new RoadBuilt($this->name, $anotherCityName),
         ];
+        $this->applyEvents($events);
+        return $events;
     }
 
     public function alienWanders()
     {
+        // TODO: for consistency, call applyEvents()
+        $chosenCityName = $this->outgoingRoads[0];
         return [
             new TravelStarted(
                 $this->alien->name(),
                 $this->name,
-                ''
+                $chosenCityName
             ),
         ];
     }
@@ -48,6 +55,9 @@ class City
         foreach ($events as $event) {
             if ($event instanceof AlienLanded) {
                 $this->alien = new Alien($event->alienName());
+            }
+            if ($event instanceof RoadBuilt) {
+                $this->outgoingRoads[] = $event->targetCityName();
             }
         } 
     }
