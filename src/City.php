@@ -19,9 +19,10 @@ class City
 
     public function alienLands(Alien $alien)
     {
-        return [
+        $events = [
             new AlienLanded($alien->name(), $this->name),
         ]; 
+        $this->applyEvents($events);
     }     
 
     public function connectTo($anotherCityName)
@@ -34,7 +35,20 @@ class City
     public function alienWanders()
     {
         return [
-            new TravelStarted('', $this->name, ''),
+            new TravelStarted(
+                $this->alien->name(),
+                $this->name,
+                ''
+            ),
         ];
+    }
+
+    private function applyEvents(array $events)
+    {
+        foreach ($events as $event) {
+            if ($event instanceof AlienLanded) {
+                $this->alien = new Alien($event->alienName());
+            }
+        } 
     }
 }
