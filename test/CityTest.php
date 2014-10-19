@@ -33,6 +33,16 @@ class CityTest extends \PHPUnit_Framework_TestCase
         );
     }    
 
+    /**
+     * @expectedException EmptyCityException
+     */
+    public function testACityWithNoAlienCannotMakeThemLeave()
+    {
+        $this->givenTwoConnectedCities('A', 'B');
+
+        $this->firstCity->alienWanders();
+    }
+
     private function givenTwoConnectedCities($firstCityName, $secondCityName)
     {
         $this->firstCity = new City($firstCityName);

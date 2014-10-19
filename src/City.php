@@ -39,6 +39,9 @@ class City
 
     public function alienWanders()
     {
+        if ($this->alien === null) {
+            throw new EmptyCityException("City {$this->name} has no alien that can wander to other Cities.");
+        }
         $chosenCityName = $this->outgoingRoads[0];
         $events = [
             new TravelStarted(
