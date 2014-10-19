@@ -3,18 +3,8 @@ use Events\CityBuilt;
 
 class CityRepository
 {
-    private $list;
+    private $list = [];
     
-    public function __construct(array $list = [])
-    {
-        $this->list = array_map(
-            function($cityName) {
-                return new City($cityName);
-            },
-            $list
-        );
-    }
-
     public function addCity(City $city)
     {
         $this->list[] = $city;

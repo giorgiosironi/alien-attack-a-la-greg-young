@@ -22,10 +22,4 @@ class CityRepositoryTest extends \PHPUnit_Framework_TestCase
         $events = $repository->addCity(new City('A'));
         $this->assertEquals(new City('A'), $repository->findAFreeCity());
     }
-
-    public function testARepositoryCanChooseAFreeCity_LegacyConstructor()
-    {
-        $repository = new CityRepository(['A']);
-        $this->assertEquals(new City('A'), $repository->findAFreeCity());
-    }    
 }

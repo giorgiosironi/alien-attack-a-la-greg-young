@@ -4,7 +4,7 @@ class World
 {
     public function __construct()
     {
-        $this->cityRepository = new CityRepository(['A']);
+        $this->cityRepository = new CityRepository();
         $this->projections = [
             new AliensPositionProjection,
         ];
