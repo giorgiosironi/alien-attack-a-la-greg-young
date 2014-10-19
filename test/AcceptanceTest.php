@@ -3,6 +3,7 @@ require_once __DIR__ . '/../src/World.php';
 require_once __DIR__ . '/../src/AliensPositionProjection.php';
 require_once __DIR__ . '/../src/City.php';
 require_once __DIR__ . '/../src/CityRepository.php';
+require_once __DIR__ . '/../src/Alien.php';
 
 class AcceptanceTest extends \PHPUnit_Framework_TestCase
 {
